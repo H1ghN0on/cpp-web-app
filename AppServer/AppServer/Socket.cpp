@@ -1,7 +1,7 @@
 #include "Socket.hpp"
 
 namespace Server {
-	SOCKET Socket::Get() {
+	SOCKET Socket::Get() const {
 		return m_socket;
 	}
 

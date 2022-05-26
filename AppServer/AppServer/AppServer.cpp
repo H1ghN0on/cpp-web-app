@@ -14,6 +14,8 @@
 
 int main() {
 
+    setlocale(LC_ALL, "Russian");
+
     Server::Server server;
 
     server.Start(ADDR, PORT);

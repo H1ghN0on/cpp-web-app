@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #include "ClientSocket.hpp"
 
@@ -26,5 +27,7 @@ namespace Server {
 			std::cout << WSAGetLastError() << std::endl;
 		}
 	}
+
+
 
 }

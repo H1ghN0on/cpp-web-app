@@ -23,8 +23,9 @@ namespace Server {
 		void Receive(char* binaryArray);
 		void Send(std::string req);
 
-
 	private:
+
 		SOCKADDR m_address;
+
 	};
 }

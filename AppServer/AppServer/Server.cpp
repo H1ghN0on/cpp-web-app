@@ -8,7 +8,7 @@
 #include "Request.hpp"
 #include "Utils.hpp"
 #include "Server.hpp"
-#include "ChatController.hpp"
+#include "TodoController.hpp"
 namespace Server {
 
     std::map<std::string, ClientSocket> Server::m_connected;
@@ -16,13 +16,15 @@ namespace Server {
 
     BOOL WINAPI Server::ClientThread(LPVOID lpData)
     {
-        ChatController control;
+
+        
         ClientSocket* socket = (ClientSocket*)lpData;
+        TodoController control;
         char binaryArray[3000] = { 0 };
 
         while (1)
         {
-   
+            
             int data = socket -> Receive(binaryArray);
             if (data > 0) {
                 std::cout << "----------------NEXT ONE----------------" << std::endl;
@@ -31,24 +33,16 @@ namespace Server {
       
                 Request req(binaryArray);
 
-        
-
                 const std::string path = req.GetPath();
                 const auto body = req.GetBody();
 
-      
+                if (path == "/add-note") control.AddNote(socket, body);
 
-                if (path == "/login") control.LogIn(socket, body);
-                   
-                else if (path == "/check") control.CheckExistence(socket, body);
-                
-                else if (path == "/new-message") {
-                    auto name = body.find("name") -> second;
-                    auto message = body.find("message") -> second;
-                    std::cout << "Name: " + name << std::endl;
-                    std::cout << "Message: " + message << std::endl;
-                    socket->Send("HTTP/1.1 200 OK\nContent-Type: text/plain\nAccess-Control-Allow-Origin: *\ncharset=UTF-8\nContent-Length: 4\r\n\r\nDIE!");
-                }
+                else if (path == "/get-notes") control.GetNotes(socket, body);
+
+                else if (path == "/edit-note") control.EditNote(socket, body);
+
+                else if (path == "/remove-note") control.RemoveNote(socket, body);
 
             }
             else if (data == 0) {
@@ -62,7 +56,6 @@ namespace Server {
 
         return TRUE;
     }
-
 
     void Server::AddConnection(std::map<std::string, ClientSocket>::value_type value) {
         m_connected.insert(value);
@@ -103,7 +96,7 @@ namespace Server {
                 std::cout << "accept( ) failed" << std::endl;
             }
             else {
-                std::cout << "New user" << std::endl;
+
                 clientThread = CreateThread(NULL, 0,
                     (LPTHREAD_START_ROUTINE)ClientThread,
                     (LPVOID)&socket, 0, &dwThreadId);

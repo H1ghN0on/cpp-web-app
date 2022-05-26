@@ -2,8 +2,25 @@
 
 #include "ClientSocket.hpp"
 
-
+#include <vector>
 namespace Server {
+
+	int ClientSocket::SendTo(std::string str, std::map<std::string, ClientSocket> dest) {
+
+
+		for (const auto &socket : dest) {
+			if (socket.second.Get()) {
+				if (send(socket.second.Get(), str.c_str(), strlen(str.c_str()), NULL) == SOCKET_ERROR) {
+					std::cout << WSAGetLastError() << std::endl;
+				}
+				else {
+					std::cout << socket.first + " got the msg" << std::endl;
+				}
+			}
+	
+		}
+		return 1;
+	}
 
 	ClientSocket::ClientSocket(const ClientSocket& obj) {
 		m_socket = obj.m_socket;
@@ -29,8 +46,9 @@ namespace Server {
 		return send(m_socket, str.c_str(), strlen(str.c_str()), NULL);
 	}
 
-	sockaddr_in ClientSocket::GetAddress() {
+	sockaddr_in ClientSocket::GetAddress() const {
 		return m_address;
 	}
+
 
 }

@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 10px;
+  background: #a406cd;
+  overflow: hidden;
+}
+
+form .title {
+  color: white;
+}
+
+.form__item {
+  margin-bottom: 15px;
+}

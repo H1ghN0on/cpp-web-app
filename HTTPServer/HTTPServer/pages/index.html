@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/zero.css" rel="stylesheet" type="text/css">
+    <link href="../styles/todo.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Hate all</title>
-  
+    <title>Todo List</title>
+   
 </head>
 <body>
-    <a href="/pages/chat.html">To chat</a>
-    <input id="input" type="text" placeholder="Name..."></input>
-    <button id="btn">DIE</button>
-
-    <script src="/scripts/script.js"></script>
+    <div class="wrapper">
+      <header>
+        <h2>ToDo list</h2>
+        <span class="logout_btn">Logout</span>
+      </header>
+      <div class="list__wrapper">
+        <ul class="list">
+        </ul>
+      </div>
+      <div>
+        <button class="add_btn">
+          Add new item
+        </button>
+      </div>
+    </div>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>

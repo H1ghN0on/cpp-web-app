@@ -1,0 +1,14 @@
+user=igor&length=4
+id=1&text=hihi23421&isChecked=false
+id=2&text=asdfadsf&isChecked=false
+id=3&text=memes&isChecked=false
+id=4&text=what&isChecked=false
+user=vasya&length=3
+id=1&text=To do this&isChecked=false
+id=2&text=And do this&isChecked=false
+id=3&text=And then do this&isChecked=false
+user=meme&length=0
+user=loh&length=1
+id=1&text=cock&isChecked=false
+user=kokoro&length=1
+id=1&text=shine&isChecked=true

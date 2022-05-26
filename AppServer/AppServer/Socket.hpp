@@ -16,7 +16,7 @@ namespace Server {
 		Socket& operator=(const Socket&) = delete;
 		Socket& operator=(Socket&&) = delete;
 
-		SOCKET Get();
+		SOCKET Get() const;
 		void Close();
 
 	protected:
