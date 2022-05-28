@@ -73,7 +73,6 @@ namespace Server {
             std::string html = readHTML(path.substr(1));
             std::cout << path << std::endl;
             std::string res = "HTTP/1.1 200 OK\nContent-Type: " + type + "; charset=UTF-8\nContent-Length: " + std::to_string(html.length()) + "\r\n\r\n" + html + "\n";
-            std::cout << res << std::endl;
             m_clientSocket.Send(res);
            
             

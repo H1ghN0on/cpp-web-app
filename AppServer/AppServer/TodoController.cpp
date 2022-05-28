@@ -37,7 +37,9 @@ namespace Server {
 			json.pop_back();
 			json += "},";
 		}
-		json.pop_back();
+		if (items.size() != 0) {
+			json.pop_back();
+		}
 		json += "]}";
 
 		

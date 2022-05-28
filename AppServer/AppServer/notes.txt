@@ -1,14 +1,12 @@
 user=igor&length=4
-id=1&text=hihi23421&isChecked=false
-id=2&text=asdfadsf&isChecked=false
-id=3&text=memes&isChecked=false
-id=4&text=what&isChecked=false
+id=1&text=hello&isChecked=false
+id=2&text=my&isChecked=false
+id=3&text=course&isChecked=false
+id=4&text=work&isChecked=false
 user=vasya&length=3
 id=1&text=To do this&isChecked=false
 id=2&text=And do this&isChecked=false
 id=3&text=And then do this&isChecked=false
-user=meme&length=0
-user=loh&length=1
-id=1&text=cock&isChecked=false
-user=kokoro&length=1
-id=1&text=shine&isChecked=true
+user=faith&length=2
+id=1&text=Изучить 15 кандзи&isChecked=false
+id=2&text=Решить ту самую домашку&isChecked=true
